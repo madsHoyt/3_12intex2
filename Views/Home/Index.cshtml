@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "Home";
+    ViewData["SubHead"] = "Welcome to";
+    ViewData["Head"] = "Fag el-Gamous";
+    ViewData["Button"] = "Learn More";
+}
+<!-- Services-->
+<section class="page-section" id="services">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">About</h2>
+            <h3 class="section-subheading text-muted">What we are all about.</h3>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-map fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">Fag el-Gamous</h4>
+                <p class="text-muted">Fag el-Gamous (which means Way of the Water Buffalo) is a large and important cemetery in Egypt that has been under archeological investigation (primarily by BYU researchers) for over 25 years.</p>
+            </div>
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-solid fa-trowel fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">The Dig</h4>
+                <p class="text-muted">The “dig” is organized using a grid system where a square is defined by the coordinates North (N), East (E), South (S), and West (W) of an origin. It is common for two numbers to designate the distance from the origin in a direction (e.g., N 190/200 or E 40/50). Those squares are then subdivided into the Northwest (NW), Northeast (NE), Southeast (SE) or Southwest (SW) quadrant (section) of the square. Because many mummies (usually 40 or more) are found in each location, a number is assigned (e.g., N 190/200 E 40/50 SE #9) to uniquely identify the burial.</p>
+            </div>
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-lock-open fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">Findings</h4>
+                <p class="text-muted">Researchers have excavated more than 1,000 mummies and collected data in field notes, spreadsheets, and simple databases about each mummy’s location, physical orientation in the ground, burial depth, hair color, wrapping (including information about the textiles used), sex, age, bone (including skull and teeth) dimensions, items accompanying the mummy, and more.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Portfolio Grid-->
+<section class="page-section bg-light" id="portfolio">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">More Details</h2>
+            <h3 class="section-subheading text-muted">Information on our findings.</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Empty Area-->
+                <div class="portfolio-item">
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Link to Burial Information -->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" asp-area="" asp-controller="Home" asp-action="Burials">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="~/assets/img/artifact1.jpg" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Burial Information</div>
+                        <div class="portfolio-caption-subheading text-muted">Learn about the burials</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Empty Area -->
+                <div class="portfolio-item">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
