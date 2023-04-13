@@ -68,15 +68,118 @@
                 </form>
             </div>
         </div>
-    </div>   
+    </div>
 </section>
 <!-- Results-->
 <section class="page-section bg-light" id="team">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Predicitions</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h2 class="section-heading text-uppercase">Make Predictions: </h2>
+            <h3 class="section-subheading text-muted">Predict the type of wrapping: </h3>
+
+            <form id="predictionForm1" action="@Url.Action("MakePrediction")" method="post">
+                <div>
+                    <label for="headdirection">Head Direction:</label>
+                    <input type="text" id="headdirection" name="headdirection" required>
+                </div>
+                <div>
+                    <label for="depth">Depth:</label>
+                    <input type="number" step="any" id="depth" name="depth" required>
+                </div>
+                <div>
+                    <label for="facebundles">Facebundles:</label>
+                    <input type="text" step="any" id="facebundles" name="facebundles" required>
+                </div>
+                <div>
+                    <label for="goods">Goods:</label>
+                    <input type="text" step="any" id="goods" name="goods" required>
+                </div>
+                <div>
+                    <label for="haircolor">Hair Color:</label>
+                    <input type="text" step="any" id="haircolor" name="haircolor" required>
+                </div>
+                <div>
+                    <label for="samplescollected">Samples Collected:</label>
+                    <input type="text" step="any" id="samplescollected" name="samplescollected" required>
+                </div>
+                <div>
+                    <label for="length">Length:</label>
+                    <input type="number" step="any" id="length" name="length" required>
+                </div>
+                <div>
+                    <label for="ageatdeath">Age At Death (A, C):</label>
+                    <input type="text" step="any" id="ageatdeath" name="ageatdeath" required>
+                </div>
+                <div>
+                    <button type="submit">Predict</button>
+                </div>
+            </form>
+            <div id="predictionResult1"></div>
+
+            @if (ViewBag.Prediction != null)
+            {
+                <div>
+                    <h3>Prediction: @ViewBag.Prediction</h3>
+                </div>
+            }
         </div>
+
+        <!--Make predictions for male or female-->
+        <br /><br />
+        <div class="text-center">
+            <h3 class="section-subheading text-muted">Predict the sex: </h3>
+
+            <form id="predictionForm" action="@Url.Action("MakePredictionMF")" method="post">
+                <div>
+                    <label for="headdirection">Head Direction:</label>
+                    <input type="text" id="headdirection" name="headdirection" required>
+                </div>
+                <div>
+                    <label for="depth">Depth:</label>
+                    <input type="number" step="any" id="depth" name="depth" required>
+                </div>
+                <div>
+                    <label for="facebundles">Facebundles:</label>
+                    <input type="text" step="any" id="facebundles" name="facebundles" required>
+                </div>
+                <div>
+                    <label for="goods">Goods:</label>
+                    <input type="text" step="any" id="goods" name="goods" required>
+                </div>
+                <div>
+                    <label for="wrapping">Wrapping:</label>
+                    <input type="text" step="any" id="wrapping" name="wrapping" required>
+                </div>
+                <div>
+                    <label for="haircolor">Hair Color:</label>
+                    <input type="text" step="any" id="haircolor" name="haircolor" required>
+                </div>
+                <div>
+                    <label for="samplescollected">Samples Collected:</label>
+                    <input type="text" step="any" id="samplescollected" name="samplescollected" required>
+                </div>
+                <div>
+                    <label for="length">Length:</label>
+                    <input type="number" step="any" id="length" name="length" required>
+                </div>
+                <div>
+                    <label for="ageatdeath">Age At Death (A, C):</label>
+                    <input type="text" step="any" id="ageatdeath" name="ageatdeath" required>
+                </div>
+                <div>
+                    <button type="submit">Predict</button>
+                </div>
+            </form>
+            <div id="predictionResult"></div>
+
+            @if (ViewBag.PredMF != null)
+            {
+                <div>
+                    <h3>Prediction: @ViewBag.PredMF</h3>
+                </div>
+            }
+        </div>
+        <br /><br />
         <div class="row">
             <div class="col-lg-4">
                 <div class="team-member">
@@ -114,3 +217,31 @@
         </div>
     </div>
 </section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#predictionForm").submit(function (event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+            var formData = $(this).serialize(); // Serialize form data
+
+            $.post("@Url.Action("MakePredictionMF")", formData, function (data) {
+                // Update the prediction result placeholder with the received data
+                $("#predictionResult").html("<h3>Prediction: " + data + "</h3>");
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#predictionForm1").submit(function (event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+            var formData = $(this).serialize(); // Serialize form data
+
+            $.post("@Url.Action("MakePrediction")", formData, function (data) {
+                // Update the prediction result placeholder with the received data
+                $("#predictionResult1").html("<h3>Prediction: " + data + "</h3>");
+            });
+        });
+    });
+</script>
