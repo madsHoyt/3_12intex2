@@ -15,19 +15,6 @@
 }
 @model BurialsViewModel
 @using System.Linq
-
-<!--To determine if edit and delete buttons should show-->
-<asp:TemplateField ShowHeader="False">
-    <ItemTemplate>
-        @if (User.IsInRole("Admin"))
-        {
-            <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False"
-                            CommandName="Edit" Text="Edit"></asp:LinkButton>
-            <asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False"
-                            CommandName="Delete" Text="Delete"></asp:LinkButton>
-        }
-    </ItemTemplate>
-</asp:TemplateField>
 <!-- Services-->
 <section class="page-section" id="services">
     <div class="container">
@@ -38,121 +25,94 @@
         <div class="row">
             <!--Form to get filter selections-->
             <form method="get" class="form-inline">
-                <div class="row">
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="adult-subadult-x-filter">Filter by Adult Subadult X:</label>
-                            <select id="adult-subadult-x-filter" name="adult-subadult-x" class="form-control">
-                                <option value="">All</option>
-                                @foreach (var value in distinctAdultSubadultX)
-                                {
-                                    <option value="@value">@value</option>
-                                }
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="sex-x-filter">Filter by Sex X:</label>
-                            <select id="sex-x-filter" name="sex-x" class="form-control">
-                                <option value="">All</option>
-                                @foreach (var value in distinctSexX)
-                                {
-                                    <option value="@value">@value</option>
-                                }
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="hair-color-x-filter">Filter by Hair Color X:</label>
-                            <select id="hair-color-x-filter" name="hair-color-x" class="form-control">
-                                <option value="">All</option>
-                                @foreach (var value in distinctHairColorX)
-                                {
-                                    <option value="@value">@value</option>
-                                }
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="face-bundles-x-filter">Filter by Face Bundles X:</label>
-                            <select id="face-bundles-x-filter" name="face-bundles-x" class="form-control">
-                                <option value="">All</option>
-                                @foreach (var value in distinctFaceBundlesX)
-                                {
-                                    <option value="@value">@value</option>
-                                }
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="head-direction-x-filter">Filter by Head Direction X:</label>
-                            <select id="head-direction-x-filter" name="head-direction-x" class="form-control">
-                                <option value="">All</option>
-                                @foreach (var value in distinctHeadDirectionX)
-                                {
-                                    <option value="@value">@value</option>
-                                }
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="age-at-death-x-filter">Filter by Age At Death X:</label>
-                            <select id="age-at-death-x-filter" name="age-at-death-x" class="form-control">
-                                <option value="">All</option>
-                                @foreach (var value in distinctAgeAtDeathX)
-                                {
-                                    <option value="@value">@value</option>
-                                }
-                            </select>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label for="adult-subadult-x-filter">Filter by Adult Subadult X:</label>
+                    <select id="adult-subadult-x-filter" name="adult-subadult-x" class="form-control">
+                        <option value="">All</option>
+                        @foreach (var value in distinctAdultSubadultX)
+                        {
+                            <option value="@value">@value</option>
+                        }
+                    </select>
                 </div>
-                <div class="row">
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="depth_min">Minimum DepthX:</label>
-                            <input type="number" id="depth_min" name="depth_min" min="0" step="1" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="depth_max">Maximum DepthX:</label>
-                            <input type="number" id="depth_max" name="depth_max" min="0" step="1" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="length_min">Minimum LengthX:</label>
-                            <input type="number" id="length_min" name="length_min" min="0" step="1" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="length_max">Maximum LengthX:</label>
-                            <input type="number" id="length_max" name="length_max" min="0" step="1" class="form-control">
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label for="sex-x-filter">Filter by Sex X:</label>
+                    <select id="sex-x-filter" name="sex-x" class="form-control">
+                        <option value="">All</option>
+                        @foreach (var value in distinctSexX)
+                        {
+                            <option value="@value">@value</option>
+                        }
+                    </select>
                 </div>
-                <div class="row">
-                    <div class="col-md">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-control form-check-input" id="function-not-null-filter" name="function-not-null">
-                            <label class="form-check-label" for="function-not-null-filter"> Only show records where Function Value is not null</label>
-                        </div>
+                <div class="form-group">
+                    <label for="hair-color-x-filter">Filter by Hair Color X:</label>
+                    <select id="hair-color-x-filter" name="hair-color-x" class="form-control">
+                        <option value="">All</option>
+                        @foreach (var value in distinctHairColorX)
+                        {
+                            <option value="@value">@value</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="face-bundles-x-filter">Filter by Face Bundles X:</label>
+                    <select id="face-bundles-x-filter" name="face-bundles-x" class="form-control">
+                        <option value="">All</option>
+                        @foreach (var value in distinctFaceBundlesX)
+                        {
+                            <option value="@value">@value</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="head-direction-x-filter">Filter by Head Direction X:</label>
+                    <select id="head-direction-x-filter" name="head-direction-x" class="form-control">
+                        <option value="">All</option>
+                        @foreach (var value in distinctHeadDirectionX)
+                        {
+                            <option value="@value">@value</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="age-at-death-x-filter">Filter by Age At Death X:</label>
+                    <select id="age-at-death-x-filter" name="age-at-death-x" class="form-control">
+                        <option value="">All</option>
+                        @foreach (var value in distinctAgeAtDeathX)
+                        {
+                            <option value="@value">@value</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="depth_min">Minimum DepthX:</label>
+                    <input type="number" id="depth_min" name="depth_min" min="0" step="1">
+                </div>
 
-                        <div class="form-check">
-                            <input type="checkbox" class="form-control form-check-input" id="structure-not-null-filter" name="structure-not-null">
-                            <label class="form-check-label" for="=structure-not-null-filter"> Only show records where Structure is not null</label>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label for="depth_max">Maximum DepthX:</label>
+                    <input type="number" id="depth_max" name="depth_max" min="0" step="1">
                 </div>
-                <!--Submit button to filter-->
-                <center><button type="submit" class="btn-lg btn btn-primary">Filter</button></center>
+
+                <div class="form-group">
+                    <label for="length_min">Minimum LengthX:</label>
+                    <input type="number" id="length_min" name="length_min" min="0" step="1">
+                </div>
+
+                <div class="form-group">
+                    <label for="length_max">Maximum LengthX:</label>
+                    <input type="number" id="length_max" name="length_max" min="0" step="1">
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="function-not-null-filter" name="function-not-null">
+                    <label class="form-check-label" for="function-not-null-filter">Only show records where Function Value is not null</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="structure-not-null-filter" name="structure-not-null">
+                    <label class="form-check-label" for="=structure-not-null-filter">Only show records where Structure is not null</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Filter</button>
             </form>
         </div>
     </div>
@@ -161,11 +121,12 @@
 <section class="page-section" id="portfolio" style="padding-left:20px; padding-right:20px">
     <div class="container bg-light">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Burial Records</h2>
+            <h2 class="section-heading text-uppercase">Filters</h2>
+            <h3 class="section-subheading text-muted">Take a look at the data.</h3>
         </div>
         <div class="row">
             <!--Table to display filtered/all data-->
-            <table class="table table-hover">
+            <table class="table">
                 <thead>
                     <tr>
                         <th>Primary Key</th>
@@ -179,8 +140,6 @@
                         <th>Length X</th>
                         <th>Function Value</th>
                         <th>Structure Value</th>
-                        <th></th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -270,35 +229,31 @@
                             continue;
                         }
 
-                    <tr>
-                        <td><a asp-controller="Home" asp-action="Details" asp-route-primaryid="@bfm.PrimaryId">@bfm.PrimaryId</a></td>
-                        <td>@bfm.AdultsubadultX</td>
-                        <td>@bfm.SexX</td>
-                        <td>@bfm.HaircolorX</td>
-                        <td>@bfm.FacebundlesX</td>
-                        <td>@bfm.HeaddirectionX</td>
-                        <td>@bfm.AgeatdeathX</td>
-                        <td>@bfm.DepthX</td>
-                        <td>@bfm.LengthX</td>
-                        <td>@bfm.FunctionValue</td>
-                        <td>@bfm.StructureValue</td>
-                        <td><a asp-controller="Home" asp-action="Edit" asp-route-primaryid="@bfm.PrimaryId">Edit</a></td>
-                        <td><a asp-controller="Home" asp-action="Delete" asp-route-primaryid="@bfm.PrimaryId">Delete</a></td>
-                    </tr>
+                        <tr>
+                            <td><a asp-controller="Home" asp-action="Details" asp-route-primaryid="@bfm.PrimaryId">@bfm.PrimaryId</a></td>
+                            <td>@bfm.AdultsubadultX</td>
+                            <td>@bfm.SexX</td>
+                            <td>@bfm.HaircolorX</td>
+                            <td>@bfm.FacebundlesX</td>
+                            <td>@bfm.HeaddirectionX</td>
+                            <td>@bfm.AgeatdeathX</td>
+                            <td>@bfm.DepthX</td>
+                            <td>@bfm.LengthX</td>
+                            <td>@bfm.FunctionValue</td>
+                            <td>@bfm.StructureValue</td>
+                        </tr>
                     }
                 </tbody>
             </table>
-        </div>
-        <!--Pagination - pages-->
-        <center>
+            <!--Pagination - pages-->
             <div page-model="@Model.PageInfo" page-action="Burials" page-classes-enabled="true"
                       page-class="btn" page-class-normal="btn-outline-dark"
                       page-class-selected="btn-yellow" class="btn-group pull-right m-1">
             </div>
-        </center>
+        </div>
+
     </div>
 </section>
-
 <!-- About-->
 <section class="page-section" id="about">
     <div class="container">

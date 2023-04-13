@@ -10,8 +10,8 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-.table {
-    overflow-y: scroll;
+.table-scroll {
+    overflow-x: scroll;
     height: 100px;
     display: block;
 }
@@ -10844,7 +10844,7 @@ p {
 }
 
 .page-section {
-  padding: 6rem 0;
+  padding: 9rem 0;
 }
 .page-section h2.section-heading, .page-section .section-heading.h2 {
   font-size: 2.5rem;

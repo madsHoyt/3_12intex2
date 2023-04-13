@@ -1,6 +1,15 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+.btn-yellow {
+    background-color: rgba(255, 200, 0, 0.9);
+    color: white;
+}
+
+.btn-yellow:hover {
+    background-color: rgba(255, 200, 30, 0.9);
+}
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;

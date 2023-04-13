@@ -9,7 +9,7 @@ namespace intex2.Models
 {
     public partial class BestFinalMerged
     {
-        public string PrimaryKey { get; set; }
+        public int PrimaryId { get; set; }
         public string LocationId { get; set; }
         public string FunctionValue { get; set; }
         public string Textilefunctionid { get; set; }

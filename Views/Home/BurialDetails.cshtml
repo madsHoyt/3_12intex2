@@ -2,5 +2,57 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    ViewData["Title"] = "BurialDetails";
+    ViewData["Head"] = "Further Details for burial " + @Model.PrimaryId;
+    ViewData["Button"] = "Learn More";
+    ViewData["Btn"] = "btn btn-primary btn - xl text - uppercase";
 }
-<h1>Hello</h1>
+
+@model BestFinalMerged
+
+<!-- Services-->
+<section class="page-section" id="services">
+    <input type="hidden" asp-for="@Model.PrimaryId" />
+    <div class="container bg-light">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Burial Info</h2>
+            <h3 class="section-subheading text-muted">What you need to know all about Burial @Model.PrimaryId.</h3>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-3">
+                <h4 class="my-3">Coordinates</h4>
+                <p class="text-muted" style="font-size:20px">@Model.LocationId</p>
+            </div>
+            <div class="col-md-3">
+                <h4 class="my-3">Function Value</h4>
+                <p class="text-muted" style="font-size:20px">@Model.FunctionValue</p>
+            </div>
+            <div class="col-md-3">
+                <h4 class="my-3">Textile Function Id</h4>
+                <p class="text-muted" style="font-size:20px">@Model.Textilefunctionid</p>
+            </div>
+            <div class="col-md-3">
+                <h4 class="my-3">Textile Function Id</h4>
+                <p class="text-muted" style="font-size:20px">@Model.Textilefunctionid</p>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-3">
+                <h4 class="my-3">Coordinates</h4>
+                <p class="text-muted">@Model.LocationId</p>
+            </div>
+            <div class="col-md-3">
+                <h4 class="my-3">Function Value</h4>
+                <p class="text-muted">@Model.FunctionValue</p>
+            </div>
+            <div class="col-md-3">
+                <h4 class="my-3">Textile Function Id</h4>
+                <p class="text-muted">@Model.Textilefunctionid</p>
+            </div>
+            <div class="col-md-3">
+                <h4 class="my-3">Textile Function Id</h4>
+                <p class="text-muted">@Model.Textilefunctionid</p>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,192 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<section class="page-section" id="services">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Add New Record</h2>
+            <h3 class="section-subheading text-muted">Wow you found something really cool. Let's record it.</h3>
+        </div>
+        <form id="recordForm">
+            <div class="row align-items-stretch mb-5">
+                <!--Location Information-->
+                <div class="row">
+                    <h4>Location Information</h4>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="coordinate_id">Coordinate ID:</label>
+                            <input type="text" id="coordinate_id" name="coordinate_id" class="form-control"><br>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="squarenorthsouth">Square North/South:</label>
+                            <input type="text" id="squarenorthsouth" name="squarenorthsouth" class="form-control"><br>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="northsouth">North/South:</label>
+                            <input type="text" id="northsouth" name="northsouth" class="form-control"><br>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="eastwest">East/West:</label>
+                            <input type="text" id="eastwest" name="eastwest" class="form-control"><br>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="squareeastwest">Square East/West:</label>
+                            <input type="text" id="squareeastwest" name="squareeastwest" class="form-control"><br>
+                        </div>
+                    </div>
+                </div>
+                <!--Burial Information-->
+                <div class="row">
+                    <h4>Burial Information</h4>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="actual_burial_id_x">Actual Burial ID X:</label>
+                            <input type="text" id="actual_burial_id_x" name="actual_burial_id_x" class="form-control"><br>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="burialnumber_x">Burial Number X:</label>
+                            <input type="text" id="burialnumber_x" name="burialnumber_x" class="form-control"><br>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="actual_burial_id_y">Actual Burial ID Y:</label>
+                            <input type="text" id="actual_burial_id_y" name="actual_burial_id_y" class="form-control"><br>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="burialnumber_y">Burial Number Y:</label>
+                            <input type="text" id="burialnumber_y" name="burialnumber_y" class="form-control"><br>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="burialnumber">Burial Number:</label>
+                            <input type="text" id="burialnumber" name="burialnumber" class="form-control"><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <h4>Date Information</h4>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="sampledate">Sample Date:</label>
+                            <input type="date" id="sampledate" name="sampledate" class="form-control"><br>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="photographeddate">Photographed Date:</label>
+                            <input type="date" id="photographeddate" name="photographeddate" class="form-control"><br>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="fieldbookexcavationyear_x">Fieldbook Excavation Year X:</label>
+                            <input type="text" id="fieldbookexcavationyear_x" name="fieldbookexcavationyear_x" class="form-control"><br>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="fieldbookexcavationyear_y">Fieldbook Excavation Year Y:</label>
+                            <input type="text" id="fieldbookexcavationyear_y" name="fieldbookexcavationyear_y" class="form-control"><br>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="DateofExamination">Date of Examination:</label>
+                            <input type="date" id="DateofExamination" name="DateofExamination" class="form-control"><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <h4>Textile Information</h4>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="main-textile-function-id">Main Textile Function ID:</label>
+                            <input type="text" id="main-textile-function-id" name="main$textilefunctionid" class="form-control"><br>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="textile-function-id">Textile Function ID:</label>
+                            <input type="text" id="textile-function-id" name="textilefunctionid" class="form-control"><br>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="main-textile-id-x">Main Textile ID X:</label>
+                            <input type="text" id="main-textile-id-x" name="main$textileid_x" class="form-control"><br>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="textile-id">Textile ID:</label>
+                            <input type="text" id="textile-id" name="textileid" class="form-control"><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <h4>Structure Information</h4>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="structure_value">Structure Value:</label>
+                            <input type="text" id="structure_value" name="structure_value"><br>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="structureid">Structure ID:</label>
+                            <input type="text" id="structureid" name="structureid"><br>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="main$structureid">Main Structure ID:</label>
+                            <input type="text" id="main$structureid" name="main$structureid"><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <h4>Personal Information</h4>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="structure_value">Structure Value:</label>
+                            <input type="text" id="structure_value" name="structure_value"><br>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="structureid">Structure ID:</label>
+                            <input type="text" id="structureid" name="structureid"><br>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="main$structureid">Main Structure ID:</label>
+                            <input type="text" id="main$structureid" name="main$structureid"><br>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Submit Button-->
+                <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
+</form>
+    </div>
+</section>

@@ -26,8 +26,8 @@ namespace intex2.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //Change to make it more secure
-                optionsBuilder.UseMySql("server=127.0.0.1;port=3306;database=intexdata;uid=root;pwd=Rootuserpassword1234", x => x.ServerVersion("8.0.30-mysql"));
+                //Change this to be more secure
+                optionsBuilder.UseMySql("server=127.0.0.1;user=root;password=Rootuserpassword1234;database=intexdata", x => x.ServerVersion("8.0.30-mysql"));
             }
         }
 
@@ -35,9 +35,12 @@ namespace intex2.Models
         {
             modelBuilder.Entity<BestFinalMerged>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.PrimaryId)
+                    .HasName("PRIMARY");
 
                 entity.ToTable("best_final_merged");
+
+                entity.Property(e => e.PrimaryId).HasColumnName("primary_id");
 
                 entity.Property(e => e.ActualBurialIdX).HasColumnName("actual_burial_id_x");
 
@@ -266,6 +269,12 @@ namespace intex2.Models
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_0900_ai_ci");
 
+                entity.Property(e => e.LocationId)
+                    .HasColumnName("location_id")
+                    .HasColumnType("varchar(255)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
                 entity.Property(e => e.MainBurialmainid)
                     .HasColumnName("main$burialmainid")
                     .HasColumnType("text")
@@ -346,12 +355,6 @@ namespace intex2.Models
 
                 entity.Property(e => e.PreservationY)
                     .HasColumnName("preservation_y")
-                    .HasColumnType("text")
-                    .HasCharSet("utf8mb4")
-                    .HasCollation("utf8mb4_0900_ai_ci");
-
-                entity.Property(e => e.PrimaryKey)
-                    .HasColumnName("primary_key")
                     .HasColumnType("text")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_0900_ai_ci");
