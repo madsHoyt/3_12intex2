@@ -41,18 +41,34 @@ namespace intex2.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult Burials(int pageNum = 1)
+        //public IActionResult Burials(int pageNum = 1)
+        public IActionResult Burials(int pageNum, string adultsubadultX, string sexX, string haircolorX, string facebundlesX, string headdirectionX, string ageatdeathX)
+
         {
             int pageSize = 35;
             var x = new BurialsViewModel
             {
                 BestFinalMerges = _context.BestFinalMerged
+                .Where(d => d.AdultsubadultX == adultsubadultX || adultsubadultX == null)
+                .Where(d => d.SexX == sexX || sexX == null)
+                .Where(d => d.FacebundlesX == facebundlesX || facebundlesX == null)
+                .Where(d => d.HaircolorX == haircolorX || haircolorX == null)
+                .Where(d => d.HeaddirectionX == headdirectionX || headdirectionX == null)
+                .Where(d => d.AgeatdeathX == ageatdeathX || ageatdeathX == null)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
                 PageInfo = new PageInfo
                 {
-                    TotalNumProjects = _context.BestFinalMerged.Count(),
+
+                    TotalNumProjects = _context.BestFinalMerged
+                    .Where(d => d.AdultsubadultX == adultsubadultX || adultsubadultX == null)
+                    .Where(d => d.SexX == sexX || sexX == null)
+                    .Where(d => d.FacebundlesX == facebundlesX || facebundlesX == null)
+                    .Where(d => d.HaircolorX == haircolorX || haircolorX == null)
+                    .Where(d => d.HeaddirectionX == headdirectionX || headdirectionX == null)
+                    .Where(d => d.AgeatdeathX == ageatdeathX || ageatdeathX == null)
+                    .Count(),
                     BurialsPerPage = pageSize,
                     CurrentPage = pageNum
                 }

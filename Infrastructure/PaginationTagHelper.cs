@@ -26,7 +26,7 @@ namespace intex2.Infrastructure
         public ViewContext vc { get; set; }
 
         //Related to Pagination
-        public PageInfo PageModel { get; set; }
+        public BurialsViewModel PageModel { get; set; }
         public string PageAction { get; set; }
         public bool PageClassesEnabled { get; set; } = false;
         public string PageClass { get; set; }
@@ -38,15 +38,15 @@ namespace intex2.Infrastructure
             IUrlHelper uh = uhf.GetUrlHelper(vc);
             TagBuilder final = new TagBuilder("div");
 
-            for (int i = 1; i <= PageModel.TotalPages; i++)
+            for (int i = 1; i <= PageModel.PageInfo.TotalPages; i++)
             {
                 TagBuilder tb = new TagBuilder("a");
-                tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+                tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i, adultsubadultX = PageModel.Filter.AdultsubadultX, sexX = PageModel.Filter.SexX, facebundlesX  = PageModel.Filter.FacebundlesX, haircolorX  = PageModel.Filter.HaircolorX, headdirectionX  = PageModel.Filter.HaircolorX, ageatdeathX = PageModel.Filter.AgeatdeathX});
                 if (PageClassesEnabled)
                 {
                     tb.AddCssClass(PageClass);
-                    tb.AddCssClass(i == PageModel.CurrentPage
-                        ? PageClassSelected : PageClassNormal);
+                    tb.AddCssClass(i == PageModel.PageInfo.CurrentPage
+                        ? PageClassSelected : PageClassNormal) ;
                 }
                 tb.InnerHtml.AppendHtml(i.ToString());
                 final.InnerHtml.AppendHtml(tb);

@@ -9,5 +9,6 @@ namespace intex2.Models.ViewModels
     {
         public IQueryable<BestFinalMerged> BestFinalMerges { get; set; }
         public PageInfo PageInfo { get; set; }
+        public Filter Filter {get; set;}
     }
 }
