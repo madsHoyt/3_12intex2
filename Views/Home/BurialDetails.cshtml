@@ -9,7 +9,6 @@
 }
 
 @model BestFinalMerged
-
 <!-- Services-->
 <section class="page-section" id="services">
     <input type="hidden" asp-for="@Model.PrimaryId" />
@@ -56,3 +55,85 @@
         </div>
     </div>
 </section>
+
+<div class="container">
+    <div class="section-header text-center">
+        <h2 class="section-heading text-uppercase">Burial Info</h2>
+        <h3 class="section-subheading text-muted">What you need to know all about Burial @Model.PrimaryId.</h3>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <h4 class="my-3">Primary ID</h4>
+            <p class="text-muted" style="font-size:20px">@Model.PrimaryId</p>
+        </div>
+        <div class="col-md-4">
+            <h4 class="my-3">Location ID</h4>
+            <p class="text-muted" style="font-size:20px">@Model.LocationId</p>
+        </div>
+        <div class="col-md-4">
+            <h4 class="my-3">Locale</h4>
+            <p class="text-muted" style="font-size:20px">@Model.Locale</p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section-header text-center">
+        <h2 class="section-heading text-uppercase">Physical Characteristics</h2>
+        <h3 class="section-subheading text-muted">Details about the physical characteristics of Burial @Model.PrimaryId.</h3>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <h4 class="my-3">Head Direction</h4>
+            <p class="text-muted">@Model.HeaddirectionX</p>
+        </div>
+        <div class="col-md-4">
+            <h4 class="my-3">Sex</h4>
+            <p class="text-muted">@Model.SexX</p>
+        </div>
+        <div class="col-md-4">
+            <h4 class="my-3">Depth</h4>
+            <p class="text-muted">@Model.DepthX</p>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <h4 class="my-3">Age at Death</h4>
+            <p class="text-muted">@Model.AgeatdeathX</p>
+        </div>
+        <div class="col-md-4">
+            <h4 class="my-3">Adult/Subadult</h4>
+            <p class="text-muted">@Model.AdultsubadultX</p>
+        </div>
+        <div class="col-md-4">
+            <h4 class="my-3">Hair Color</h4>
+            <p class="text-muted">@Model.HaircolorX</p>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-6 offset-md-3">
+            <h4 class="my-3">Length</h4>
+            <p class="text-muted">@Model.LengthX</p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="section-header text-center">
+        <h2 class="section-heading text-uppercase" style="font-size:24px">Burial Info</h2>
+        <h3 class="section-subheading text-muted" style="font-size:18px">What you need to know all about Burial @Model.PrimaryId.</h3>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-2">
+            <h4 class="my-3" style="font-size:16px">Primary ID</h4>
+            <p class="text-muted" style="font-size:14px">@Model.PrimaryId</p>
+        </div>
+        <div class="col-md-2">
+            <h4 class="my-3" style="font-size:16px">Location ID</h4>
+            <p class="text-muted" style="font-size:14px">@Model.LocationId</p>
+        </div>
+        <div class="col-md-2">
+            <h4 class="my-3" style="font-size:16px">Locale</h4>
+            <p class="text-muted" style="font-size:14px">@Model.Locale</p>
+        </div>
+    </div>
+</div>

@@ -30,7 +30,7 @@ namespace intex2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
+                options.UseMySql(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<intexdataContext>(options =>
                 options.UseMySql(
