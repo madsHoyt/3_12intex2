@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -9,7 +10,8 @@ namespace intex2.Models
 {
     public partial class BestFinalMerged
     {
-        public int PrimaryId { get; set; }
+        
+        public int? PrimaryId { get; set; }
         public string LocationId { get; set; }
         public string FunctionValue { get; set; }
         public string Textilefunctionid { get; set; }

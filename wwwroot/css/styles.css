@@ -10,6 +10,51 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+.nk-cookie-banner {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 999;
+    border-radius: 0px;
+    display: none;
+}
+.cookie-notification {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ccc;
+    z-index: 9999;
+}
+
+.cookie-notification p {
+    display: inline-block;
+    margin: 0;
+}
+
+.cookie-buttons {
+    display: inline-block;
+    float: right;
+}
+
+.cookie-button {
+    margin-left: 10px;
+}
+
+.btn-yellow {
+    background-color: rgba(255, 200, 0, 0.9);
+    color: white;
+}
+
+.btn-yellow:hover {
+    background-color: rgba(255, 200, 30, 0.9);
+}
+
 .table-scroll {
     overflow-x: scroll;
     height: 100px;

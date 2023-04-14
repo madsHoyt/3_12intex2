@@ -3,114 +3,303 @@
     ViewData["SubHead"] = "Learn about the burials through a";
     ViewData["Head"] = "Supervised Model";
     ViewData["Button"] = "Input Data";
+    ViewData["Btn"] = "btn btn-primary btn - xl text - uppercase";
 }
+
+@model CombinedInputData
 <!-- Services-->
-<section class="page-section" id="services">
+<br />
+<br />
+<section class="page-section bg-light" id="services">
     <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">New Findings</h2>
-            <h3 class="section-subheading text-muted">input your findings in the form below.</h3>
-        </div>
-        <div class="row text-center">
-            <div class="modal-body border-0 p-4 bg-dark rounded">
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- * * SB Forms Contact Form * *-->
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- This form is pre-integrated with SB Forms.-->
-                <!-- To make this form functional, sign up at-->
-                <!-- https://startbootstrap.com/solution/contact-forms-->
-                <!-- to get an API token!-->
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                    <!-- Name input-->
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                        <label for="name">Full name</label>
-                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                    </div>
-                    <!-- Email address input-->
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                        <label for="email">Email address</label>
-                        <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                    </div>
-                    <!-- Phone number input-->
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                        <label for="phone">Phone number</label>
-                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                    </div>
-                    <!-- Message input-->
-                    <div class="form-floating mb-3">
-                        <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                        <label for="message">Message</label>
-                        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                    </div>
-                    <!-- Submit success message-->
-                    <!---->
-                    <!-- This is what your users will see when the form-->
-                    <!-- has successfully submitted-->
-                    <div class="d-none" id="submitSuccessMessage">
-                        <div class="text-center mb-3">
-                            <div class="fw-bolder">Form submission successful!</div>
-                            To activate this form, sign up at
-                            <br />
-                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                        </div>
-                    </div>
-                    <!-- Submit error message-->
-                    <!---->
-                    <!-- This is what your users will see when there is-->
-                    <!-- an error submitting the form-->
-                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                    <!-- Submit Button-->
-                    <div class="d-grid"><button class="btn btn-primary rounded-pill btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
-                </form>
-            </div>
-        </div>
-    </div>   
-</section>
-<!-- Results-->
-<section class="page-section bg-light" id="team">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">Predicitions</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="assets/img/team/1.jpg" alt="..." />
-                    <h4>Parveen Anand</h4>
-                    <p class="text-muted">Lead Designer</p>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+        <div>
+            <h2>Predict Wrapping Type: </h2>
+            <!-- Add your form for user input -->
+            <form asp-controller="Home" asp-action="PredictWrapping" method="post">
+                <div class="form-group">
+                    <label for="WrappingInputData.Depth">Depth: </label>
+                    <input asp-for="WrappingInputData.Depth" class="form-control" id="WrappingInputData.Depth" name="WrappingInputData.Depth">
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="..." />
-                    <h4>Diana Petersen</h4>
-                    <p class="text-muted">Lead Marketer</p>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                <div class="form-group">
+                    <label for="WrappingInputData.Depth">Length:</label>
+                    <input asp-for="WrappingInputData.Length" class="form-control" id="WrappingInputData.Length" name="WrappingInputData.Length">
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="assets/img/team/3.jpg" alt="..." />
-                    <h4>Larry Parker</h4>
-                    <p class="text-muted">Lead Developer</p>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                <div class="form-check">
+                    <input asp-for="WrappingInputData.Headdirection_W" class="form-check-input" id="WrappingInputData.Headdirection_W" name="WrappingInputData.Headdirection_W">
+                    <label class="form-check-label" for="WrappingInputData.Headdirection_W">Head Direction West</label>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" >
+                    <label class="form-check-label">Head Direction East</label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="WrappingInputData.Facebundles_Y" class="form-check-input" id="WrappingInputData.Facebundles_Y" name="WrappingInputData.Facebundles_Y">
+                    <label class="form-check-label" for="WrappingInputData.Facebundles_Y">Facebundle? (Y/N) </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="WrappingInputData.Goods_Y" class="form-check-input" id="WrappingInputData.Goods_Y" name="WrappingInputData.Goods_Y">
+                    <label class="form-check-label" for="WrappingInputData.Goods_Y">Goods Found? (Y/N) </label>
+                </div>
+                <span>Hair Color: </span>
+                <div class="form-check">
+                    <input asp-for="WrappingInputData.Haircolor_B" class="form-check-input" id="WrappingInputData.Haircolor_B" name="WrappingInputData.Haircolor_B">
+                    <label class="form-check-label" for="WrappingInputData.Haircolor_B">Brown/Dark Brown/Lt Brown </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="WrappingInputData.Haircolor_D" class="form-check-input" id="WrappingInputData.Haircolor_D" name="WrappingInputData.Haircolor_D">
+                    <label class="form-check-label" for="WrappingInputData.Haircolor_D">Blonde </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="WrappingInputData.Haircolor_K" class="form-check-input" id="WrappingInputData.Haircolor_K" name="WrappingInputData.Haircolor_K">
+                    <label class="form-check-label" for="WrappingInputData.Haircolor_K">Black </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="WrappingInputData.Haircolor_R" class="form-check-input" id="WrappingInputData.Haircolor_R" name="WrappingInputData.Haircolor_R">
+                    <label class="form-check-label" for="WrappingInputData.Haircolor_R">Red/Red-Bl </label>
+                </div>
+                <div class="form-check">
+                    <input  type="checkbox" class="form-check-input">
+                    <label class="form-check-label">Brown-Red </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="WrappingInputData.Haircolor_unknown" class="form-check-input" id="WrappingInputData.Haircolor_unknown" name="WrappingInputData.Haircolor_unknown">
+                    <label class="form-check-label" for="WrappingInputData.Haircolor_unknown">Unknown Hair Color </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="WrappingInputData.Samplescollected_true" class="form-check-input" id="WrappingInputData.Samplescollected_true" name="WrappingInputData.Samplescollected_true">
+                    <label class="form-check-label" for="WrappingInputData.Samplescollected_true">Samples Collected? (Y/N) </label>
+                </div>
+                <span>Age At Death: </span>
+                <div class="form-check">
+                    <input asp-for="WrappingInputData.Ageatdeath_C" class="form-check-input" id="WrappingInputData.Ageatdeath_C" name="WrappingInputData.Ageatdeath_C">
+                    <label class="form-check-label" for="WrappingInputData.Ageatdeath_C">Adult</label>
+                </div>
+                <div class="form-check">
+                    <input  type="checkbox" class="form-check-input">
+                    <label class="form-check-label">Child </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="WrappingInputData.Ageatdeath_unknown" class="form-check-input" id="WrappingInputData.Ageatdeath_unknown" name="WrappingInputData.Ageatdeath_unknown">
+                    <label class="form-check-label" for="WrappingInputData.Ageatdeath_unknown">Age at Death Unknown </label>
+                </div>
+                <!-- Add the rest of the checkbox inputs -->
+                @if (ViewBag.WrappingPrediction != null)
+                {
+                    <h3>Wrapping Prediction: @ViewBag.WrappingPrediction</h3>
+                }
+                <button type="submit" class="btn btn-primary">Predict</button>
+            </form>
         </div>
     </div>
 </section>
+<br />
+<br />
+<section class="page-section bg-light" id="services">
+    <div class="container">
+        <div>
+            <h2>Predict Sex: </h2>
+            <!-- Add your form for user input -->
+            <form asp-controller="Home" asp-action="PredictSex" method="post">
+                <div class="form-group">
+                    <label for="SexInputData.Depth">Depth: </label>
+                    <input asp-for="SexInputData.Depth" class="form-control" id="SexInputData.Depth" name="SexInputData.Depth">
+                </div>
+                <div class="form-group">
+                    <label for="SexInputData.Length">Length:</label>
+                    <input asp-for="SexInputData.Length" class="form-control" id="SexInputData.Length" name="SexInputData.Length">
+                </div>
+                <div class="form-check">
+                    <input asp-for="SexInputData.Headdirection_W" class="form-check-input" id="SexInputData.headdirection_W" name="SexInputData.Headdirection_W">
+                    <label class="form-check-label" for="SexInputData.Headdirection_W">Head Direction West </label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input">
+                    <label class="form-check-label">Head Direction East</label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="SexInputData.Facebundles_Y" class="form-check-input" id="SexInputData.Facebundles_Y" name="SexInputData.Facebundles_Y">
+                    <label class="form-check-label" for="SexInputData.Facebundles_Y">Facebundle? (Y/N) </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="SexInputData.Goods_Y" class="form-check-input" id="SexInputData.Goods_Y" name="SexInputData.Goods_Y">
+                    <label class="form-check-label" for="SexInputData.Goods_Y">Goods Found?</label>
+                </div>
+                <span>Wrapping Type: </span>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input">
+                    <label class="form-check-label">Bones </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="SexInputData.Wrapping_H" class="form-check-input" id="SexInputData.Wrapping_H" name="SexInputData.Wrapping_H">
+                    <label class="form-check-label" for="SexInputData.Wrapping_H">Half Wrap </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="SexInputData.Wrapping_W" class="form-check-input" id="SexInputData.Wrapping_W" name="SexInputData.Wrapping_W">
+                    <label class="form-check-label" for="SexInputData.Wrapping_W">Whole Wrap </label>
+                </div>
+                <span>Hair Color: </span>
+                <div class="form-check">
+                    <input asp-for="SexInputData.Haircolor_B" class="form-check-input" id="SexInputData.Haircolor_B" name="SexInputData.Haircolor_B">
+                    <label class="form-check-label" for="SexInputData.Haircolor_B">Brown/Dark Brown/Lt Brown </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="SexInputData.Haircolor_D" class="form-check-input" id="SexInputData.Haircolor_D" name="SexInputData.Haircolor_D">
+                    <label class="form-check-label" for="SexInputData.Haircolor_D">Blonde </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="SexInputData.Haircolor_K" class="form-check-input" id="SexInputData.Haircolor_K" name="SexInputData.Haircolor_K">
+                    <label class="form-check-label" for="SexInputData.Haircolor_K">Black </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="SexInputData.Haircolor_R" class="form-check-input" id="SexInputData.Haircolor_R" name="SexInputData.Haircolor_R">
+                    <label class="form-check-label" for="SexInputData.Haircolor_R">Red/Red-Bl </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="SexInputData.Haircolor_unknown" class="form-check-input" id="SexInputData.Haircolor_unknown" name="SexInputData.Haircolor_unknown">
+                    <label class="form-check-label" for="SexInputData.Haircolor_unknown">Hair Color Unknown </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="SexInputData.Samplescollected_true" class="form-check-input" id="SexInputData.Samplescollected_true" name="SexInputData.Samplescollected_true">
+                    <label class="form-check-label" for="SexInputData.Samplescollected_true">Samples Collected? (Y/N): </label>
+                </div>
+                <span>Age At Death</span>
+                <div class="form-check">
+                    <input asp-for="SexInputData.Ageatdeath_C" class="form-check-input" id="SexInputData.Ageatdeath_C" name="SexInputData.Ageatdeath_C">
+                    <label class="form-check-label" for="SexInputData.Ageatdeath_C">Adult </label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input">
+                    <label class="form-check-label">Child </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="SexInputData.Ageatdeath_unknown" class="form-check-input" id="SexInputData.Ageatdeath_unknown" name="SexInputData.Ageatdeath_unknown">
+                    <label class="form-check-label" for="SexInputData.Ageatdeath_unknown">Age at Death Unknown</label>
+                </div>
+                <!-- Add the rest of the checkbox inputs -->
+                @if (ViewBag.SexPrediction != null)
+                {
+                    <h3>Sex Prediction: @ViewBag.SexPrediction</h3>
+                }
+                <button type="submit" class="btn btn-primary">Predict</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Results-->
+@*<div id="predictionResult1"></div>
+
+    @if (ViewBag.Prediction != null)
+    {
+        <p>Prediction: @ViewBag.Prediction</p>
+    }*@
+
+<!-- Add other existing content for Supervised.cshtml -->
+@*<h2 class="section-heading text-uppercase">Make Predictions: </h2>
+    <h3 class="section-subheading text-muted">Predict the type of wrapping: </h3>
+
+    <form id="predictionForm1" action="@Url.Action("MakePrediction")" method="post">
+        <div>
+            <label for="headdirection">Head Direction:</label>
+            <input type="text" id="headdirection" name="headdirection" required>
+        </div>
+        <div>
+            <label for="depth">Depth:</label>
+            <input type="number" step="any" id="depth" name="depth" required>
+        </div>
+        <div>
+            <label for="facebundles">Facebundles:</label>
+            <input type="text" step="any" id="facebundles" name="facebundles" required>
+        </div>
+        <div>
+            <label for="goods">Goods:</label>
+            <input type="text" step="any" id="goods" name="goods" required>
+        </div>
+        <div>
+            <label for="haircolor">Hair Color:</label>
+            <input type="text" step="any" id="haircolor" name="haircolor" required>
+        </div>
+        <div>
+            <label for="samplescollected">Samples Collected:</label>
+            <input type="text" step="any" id="samplescollected" name="samplescollected" required>
+        </div>
+        <div>
+            <label for="length">Length:</label>
+            <input type="number" step="any" id="length" name="length" required>
+        </div>
+        <div>
+            <label for="ageatdeath">Age At Death (A, C):</label>
+            <input type="text" step="any" id="ageatdeath" name="ageatdeath" required>
+        </div>
+        <div>
+            <button type="submit">Predict</button>
+        </div>
+    </form>
+    <div id="predictionResult1"></div>
+
+    @if (ViewBag.Prediction != null)
+    {
+        <div>
+            <h3>Prediction: @ViewBag.Prediction</h3>
+        </div>
+    }*@
+    </div>
+
+<!--Make predictions for male or female-->
+<br />
+<br />
+<section>
+    <div class="text-center">
+
+        @*<h3 class="section-subheading text-muted">Predict the sex: </h3>
+
+            <form id="predictionForm" action="@Url.Action("MakePredictionMF")" method="post">
+                <div>
+                    <label for="headdirection">Head Direction:</label>
+                    <input type="text" id="headdirection" name="headdirection" required>
+                </div>
+                <div>
+                    <label for="depth">Depth:</label>
+                    <input type="number" step="any" id="depth" name="depth" required>
+                </div>
+                <div>
+                    <label for="facebundles">Facebundles:</label>
+                    <input type="text" step="any" id="facebundles" name="facebundles" required>
+                </div>
+                <div>
+                    <label for="goods">Goods:</label>
+                    <input type="text" step="any" id="goods" name="goods" required>
+                </div>
+                <div>
+                    <label for="wrapping">Wrapping:</label>
+                    <input type="text" step="any" id="wrapping" name="wrapping" required>
+                </div>
+                <div>
+                    <label for="haircolor">Hair Color:</label>
+                    <input type="text" step="any" id="haircolor" name="haircolor" required>
+                </div>
+                <div>
+                    <label for="samplescollected">Samples Collected:</label>
+                    <input type="text" step="any" id="samplescollected" name="samplescollected" required>
+                </div>
+                <div>
+                    <label for="length">Length:</label>
+                    <input type="number" step="any" id="length" name="length" required>
+                </div>
+                <div>
+                    <label for="ageatdeath">Age At Death (A, C):</label>
+                    <input type="text" step="any" id="ageatdeath" name="ageatdeath" required>
+                </div>
+                <div>
+                    <button type="submit">Predict</button>
+                </div>
+            </form>
+            <div id="predictionResult"></div>
+
+            @if (ViewBag.PredMF != null)
+            {
+                <div>
+                    <h3>Prediction: @ViewBag.PredMF</h3>
+                </div>
+            }*@
+    </div>

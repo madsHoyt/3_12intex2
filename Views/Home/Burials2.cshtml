@@ -6,12 +6,12 @@
     ViewData["Btn"] = "btn btn-primary btn - xl text - uppercase";
 
     //filtering variables
-    var distinctAdultSubadultX = Model.BestFinalMerges.Select(x => x.AdultsubadultX).Distinct().ToList();
-    var distinctSexX = Model.BestFinalMerges.Select(x => x.SexX).Distinct().ToList();
-    var distinctHairColorX = Model.BestFinalMerges.Select(x => x.HaircolorX).Distinct().ToList();
-    var distinctFaceBundlesX = Model.BestFinalMerges.Select(x => x.FacebundlesX).Distinct().ToList();
-    var distinctHeadDirectionX = Model.BestFinalMerges.Select(x => x.HeaddirectionX).Distinct().ToList();
-    var distinctAgeAtDeathX = Model.BestFinalMerges.Select(x => x.AgeatdeathX).Distinct().ToList();
+    var distinctAdultSubadultX = Model.BestFinalMergeds.Select(x => x.AdultsubadultX).Distinct().ToList();
+    var distinctSexX = Model.BestFinalMergeds.Select(x => x.SexX).Distinct().ToList();
+    var distinctHairColorX = Model.BestFinalMergeds.Select(x => x.HaircolorX).Distinct().ToList();
+    var distinctFaceBundlesX = Model.BestFinalMergeds.Select(x => x.FacebundlesX).Distinct().ToList();
+    var distinctHeadDirectionX = Model.BestFinalMergeds.Select(x => x.HeaddirectionX).Distinct().ToList();
+    var distinctAgeAtDeathX = Model.BestFinalMergeds.Select(x => x.AgeatdeathX).Distinct().ToList();
 }
 @model BurialsViewModel
 @using System.Linq
@@ -143,7 +143,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (BestFinalMerged bfm in Model.BestFinalMerges)
+                    @foreach (BestFinalMerged bfm in Model.BestFinalMergeds)
                     {
                         if (!string.IsNullOrEmpty(ViewContext.HttpContext.Request.Query["adult-subadult-x"]))
                         {

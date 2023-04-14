@@ -3,190 +3,197 @@
 *@
 @{
 }
+@model intex2.Models.BestFinalMerged
 
 <section class="page-section" id="services">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Add New Record</h2>
+            <h2 class="section-heading text-uppercase">Add or Edit a Record</h2>
             <h3 class="section-subheading text-muted">Wow you found something really cool. Let's record it.</h3>
         </div>
-        <form id="recordForm">
+        <form id="recordForm" method="post">
+            <input asp-for="PrimaryId" type="hidden" />
             <div class="row align-items-stretch mb-5">
                 <!--Location Information-->
                 <div class="row">
                     <h4>Location Information</h4>
                     <div class="col-md">
                         <div class="form-group">
-                            <label for="coordinate_id">Coordinate ID:</label>
-                            <input type="text" id="coordinate_id" name="coordinate_id" class="form-control"><br>
+                            <label for="coordinate_id">Location:</label>
+                            <input type="text" id="coordinate_id" name="coordinate_id" class="form-control" asp-for="LocationId"><br>
+                            <span asp-validation-for="LocationId" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="form-group">
                             <label for="squarenorthsouth">Square North/South:</label>
-                            <input type="text" id="squarenorthsouth" name="squarenorthsouth" class="form-control"><br>
+                            <input type="text" id="squarenorthsouth" name="squarenorthsouth" class="form-control" asp-for="Squarenorthsouth"><br>
+                            <span asp-validation-for="Squarenorthsouth" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="form-group">
                             <label for="northsouth">North/South:</label>
-                            <input type="text" id="northsouth" name="northsouth" class="form-control"><br>
+                            <input type="text" id="northsouth" name="northsouth" class="form-control" asp-for="Northsouth"><br>
+                            <span asp-validation-for="Northsouth" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="form-group">
                             <label for="eastwest">East/West:</label>
-                            <input type="text" id="eastwest" name="eastwest" class="form-control"><br>
+                            <input type="text" id="eastwest" name="eastwest" class="form-control" asp-for="Eastwest"><br>
+                            <span asp-validation-for="Eastwest" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="form-group">
                             <label for="squareeastwest">Square East/West:</label>
-                            <input type="text" id="squareeastwest" name="squareeastwest" class="form-control"><br>
+                            <input type="text" id="squareeastwest" name="squareeastwest" class="form-control" asp-for="Squareeastwest"><br>
+                            <span asp-validation-for="Squareeastwest" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
-                <!--Burial Information-->
-                <div class="row">
-                    <h4>Burial Information</h4>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="actual_burial_id_x">Actual Burial ID X:</label>
-                            <input type="text" id="actual_burial_id_x" name="actual_burial_id_x" class="form-control"><br>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="burialnumber_x">Burial Number X:</label>
-                            <input type="text" id="burialnumber_x" name="burialnumber_x" class="form-control"><br>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="actual_burial_id_y">Actual Burial ID Y:</label>
-                            <input type="text" id="actual_burial_id_y" name="actual_burial_id_y" class="form-control"><br>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="burialnumber_y">Burial Number Y:</label>
-                            <input type="text" id="burialnumber_y" name="burialnumber_y" class="form-control"><br>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="burialnumber">Burial Number:</label>
-                            <input type="text" id="burialnumber" name="burialnumber" class="form-control"><br>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <h4>Date Information</h4>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="sampledate">Sample Date:</label>
-                            <input type="date" id="sampledate" name="sampledate" class="form-control"><br>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="photographeddate">Photographed Date:</label>
-                            <input type="date" id="photographeddate" name="photographeddate" class="form-control"><br>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="fieldbookexcavationyear_x">Fieldbook Excavation Year X:</label>
-                            <input type="text" id="fieldbookexcavationyear_x" name="fieldbookexcavationyear_x" class="form-control"><br>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="fieldbookexcavationyear_y">Fieldbook Excavation Year Y:</label>
-                            <input type="text" id="fieldbookexcavationyear_y" name="fieldbookexcavationyear_y" class="form-control"><br>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="DateofExamination">Date of Examination:</label>
-                            <input type="date" id="DateofExamination" name="DateofExamination" class="form-control"><br>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <h4>Textile Information</h4>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="main-textile-function-id">Main Textile Function ID:</label>
-                            <input type="text" id="main-textile-function-id" name="main$textilefunctionid" class="form-control"><br>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="textile-function-id">Textile Function ID:</label>
-                            <input type="text" id="textile-function-id" name="textilefunctionid" class="form-control"><br>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="main-textile-id-x">Main Textile ID X:</label>
-                            <input type="text" id="main-textile-id-x" name="main$textileid_x" class="form-control"><br>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="textile-id">Textile ID:</label>
-                            <input type="text" id="textile-id" name="textileid" class="form-control"><br>
-                        </div>
-                    </div>
-                </div>
+                <!--Structure information-->
                 <div class="row">
                     <h4>Structure Information</h4>
                     <div class="col-md">
                         <div class="form-group">
                             <label for="structure_value">Structure Value:</label>
-                            <input type="text" id="structure_value" name="structure_value"><br>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="structureid">Structure ID:</label>
-                            <input type="text" id="structureid" name="structureid"><br>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="main$structureid">Main Structure ID:</label>
-                            <input type="text" id="main$structureid" name="main$structureid"><br>
+                            <input type="text" class="form-control" asp-for="StructureValue"><br>
+                            <span asp-validation-for="StructureValue" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
+                <!--Burial information-->
+                <div class="row">
+                    <h4>Burial Information</h4>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="burialnumber">Burial Number:</label>
+                            <input type="text" class="form-control" asp-for="Burialnumber"><br>
+                            <span asp-validation-for="Burialnumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="headdirection">Head Direction:</label>
+                            <input type="text" class="form-control" asp-for="HeaddirectionX"><br>
+                            <span asp-validation-for="HeaddirectionX" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="Length">Length:</label>
+                            <input type="text" class="form-control" asp-for="LengthX"><br>
+                            <span asp-validation-for="LengthX" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="Depth">Depth:</label>
+                            <input type="text" class="form-control" asp-for="DepthX"><br>
+                            <span asp-validation-for="DepthX" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <!--Personal information-->
                 <div class="row">
                     <h4>Personal Information</h4>
                     <div class="col-md">
                         <div class="form-group">
-                            <label for="structure_value">Structure Value:</label>
-                            <input type="text" id="structure_value" name="structure_value"><br>
+                            <label for="burialnumber">Sex:</label>
+                            <input type="text" class="form-control" asp-for="SexX"><br>
+                            <span asp-validation-for="SexX" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="form-group">
-                            <label for="structureid">Structure ID:</label>
-                            <input type="text" id="structureid" name="structureid"><br>
+                            <label for="headdirection">Age At Death:</label>
+                            <input type="text" class="form-control" asp-for="AgeatdeathX"><br>
+                            <span asp-validation-for="AgeatdeathX" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="form-group">
-                            <label for="main$structureid">Main Structure ID:</label>
-                            <input type="text" id="main$structureid" name="main$structureid"><br>
+                            <label for="headdirection">Subpubic Angle:</label>
+                            <input type="text" class="form-control" asp-for="SubpubicAngle"><br>
+                            <span asp-validation-for="SubpubicAngle" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="headdirection">Sciatic Notch:</label>
+                            <input type="text" class="form-control" asp-for="SciaticNotch"><br>
+                            <span asp-validation-for="SciaticNotch" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="headdirection">Face Bundles:</label>
+                            <input type="text" class="form-control" asp-for="FacebundlesX"><br>
+                            <span asp-validation-for="FacebundlesX" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label asp-for="HaircolorX">Hair color:</label>
+                            <input type="text" class="form-control" asp-for="HaircolorX"><br>
+                            <span asp-validation-for="HaircolorX" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label asp-for="HeaddirectionX">Goods:</label>
+                            <input type="text" class="form-control" asp-for="HeaddirectionX"><br>
+                            <span asp-validation-for="HeaddirectionX" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="headdirection">Wrapping:</label>
+                            <input type="text" class="form-control" asp-for="WrappingX"><br>
+                            <span asp-validation-for="WrappingX" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <!--Preservation information-->
+                <div class="row">
+                    <h4>Preservation Information</h4>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="burialnumber">Preservation</label>
+                            <input type="text" class="form-control" asp-for="PreservationX"><br>
+                            <span asp-validation-for="PreservationX" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <!--Other information-->
+                <div class="row">
+                    <h4>Other Information</h4>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <input type="text" class="form-control" asp-for="Description"><br>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="notes">Notes</label>
+                            <input type="text" class="form-control" asp-for="Notes"><br>
+                            <span asp-validation-for="Notes" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-
-                <!-- Submit Button-->
-                <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
-</form>
+            <!-- Submit Button-->
+            <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Record</button></div>
+            <div asp-validation-summary="All"></div>
+        </form>
     </div>
+
 </section>

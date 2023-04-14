@@ -7,7 +7,8 @@ namespace intex2.Models.ViewModels
 {
     public class BurialsViewModel
     {
-        public IQueryable<BestFinalMerged> BestFinalMerges { get; set; }
+        public IQueryable<BestFinalMerged> BestFinalMergeds { get; set; }
         public PageInfo PageInfo { get; set; }
+
     }
 }

@@ -12,5 +12,6 @@ namespace intex2.Data
             : base(options)
         {
         }
+       
     }
 }

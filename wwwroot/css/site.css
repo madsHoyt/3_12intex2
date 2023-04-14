@@ -1,6 +1,31 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+.cookie-notification {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ccc;
+    z-index: 9999;
+}
+
+.cookie-notification p {
+        display: inline-block;
+        margin: 0;
+  }
+
+.cookie-buttons {
+    display: inline-block;
+    float: right;
+}
+
+.cookie-button {
+    margin-left: 10px;
+}
 .btn-yellow {
     background-color: rgba(255, 200, 0, 0.9);
     color: white;
@@ -95,9 +120,3 @@ body {
     font-size: 16px;
 }
 
-.acceptcookies {
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-    border-radius: 3px;
-    padding
