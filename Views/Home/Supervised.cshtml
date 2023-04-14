@@ -4,130 +4,216 @@
     ViewData["Head"] = "Supervised Model";
     ViewData["Button"] = "Input Data";
 }
+
+@model WrappingInputData
 <!-- Services-->
-<section class="page-section" id="services">
+<br /><br />
+<section class="page-section bg-light" id="services">
+
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">New Findings</h2>
-            <h3 class="section-subheading text-muted">input your findings in the form below.</h3>
-        </div>
-        <div class="row text-center">
-            <div class="modal-body border-0 p-4 bg-dark rounded">
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- * * SB Forms Contact Form * *-->
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- This form is pre-integrated with SB Forms.-->
-                <!-- To make this form functional, sign up at-->
-                <!-- https://startbootstrap.com/solution/contact-forms-->
-                <!-- to get an API token!-->
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                    <!-- Name input-->
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                        <label for="name">Full name</label>
-                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                    </div>
-                    <!-- Email address input-->
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                        <label for="email">Email address</label>
-                        <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                    </div>
-                    <!-- Phone number input-->
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                        <label for="phone">Phone number</label>
-                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                    </div>
-                    <!-- Message input-->
-                    <div class="form-floating mb-3">
-                        <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                        <label for="message">Message</label>
-                        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                    </div>
-                    <!-- Submit success message-->
-                    <!---->
-                    <!-- This is what your users will see when the form-->
-                    <!-- has successfully submitted-->
-                    <div class="d-none" id="submitSuccessMessage">
-                        <div class="text-center mb-3">
-                            <div class="fw-bolder">Form submission successful!</div>
-                            To activate this form, sign up at
-                            <br />
-                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                        </div>
-                    </div>
-                    <!-- Submit error message-->
-                    <!---->
-                    <!-- This is what your users will see when there is-->
-                    <!-- an error submitting the form-->
-                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                    <!-- Submit Button-->
-                    <div class="d-grid"><button class="btn btn-primary rounded-pill btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
-                </form>
-            </div>
+
+            <h2>Predict Wrapping Type: </h2>
+
+            <!-- Add your form for user input -->
+            <form asp-controller="Home" asp-action="PredictWrapping" method="post">
+                <div class="form-group">
+                    <label for="Depth">Depth: </label>
+                    <input asp-for="Depth" class="form-control" id="Depth" name="Depth">
+                </div>
+                <div class="form-group">
+                    <label for="Depth">Length:</label>
+                    <input asp-for="Length" class="form-control" id="Length" name="Length">
+                </div>
+
+                <div class="form-check">
+                    <input asp-for="Headdirection_W" class="form-check-input" id="headdirection_W" name="Headdirection_W">
+                    <label class="form-check-label" for="Headdirection_W">Head Direction: </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="Facebundles_Y" class="form-check-input" id="Facebundles_Y" name="Facebundles_Y">
+                    <label class="form-check-label" for="Facebundles_Y">Facebundle? (Y/N): </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="Goods_Y" class="form-check-input" id="Goods_Y" name="Goods_Y">
+                    <label class="form-check-label" for="Goods_Y">Goods? (Y/N): </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="Haircolor_B" class="form-check-input" id="Haircolor_B" name="Haircolor_B">
+                    <label class="form-check-label" for="Haircolor_B">HairColor B? (Y/N): </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="Haircolor_D" class="form-check-input" id="Haircolor_D" name="Haircolor_D">
+                    <label class="form-check-label" for="Haircolor_D">Hair Color D? (Y/N): </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="Haircolor_K" class="form-check-input" id="Haircolor_K" name="Haircolor_K">
+                    <label class="form-check-label" for="Haircolor_K">Hair Color K? (Y/N): </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="Haircolor_R" class="form-check-input" id="Haircolor_R" name="Haircolor_R">
+                    <label class="form-check-label" for="Haircolor_R">Hair Color R? (Y/N): </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="Haircolor_unknown" class="form-check-input" id="Haircolor_unknown" name="Haircolor_unknown">
+                    <label class="form-check-label" for="Haircolor_unknown">Hair Color Unknown? (Y/N): </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="Samplescollected_true" class="form-check-input" id="Samplescollected_true" name="Samplescollected_true">
+                    <label class="form-check-label" for="Samplescollected_true">Samples Collected? (Y/N): </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="Ageatdeath_C" class="form-check-input" id="Ageatdeath_C" name="Ageatdeath_C">
+                    <label class="form-check-label" for="Ageatdeath_C">Age at Death Adult? (Y/N): </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="Ageatdeath_unknown" class="form-check-input" id="Ageatdeath_unknown" name="Ageatdeath_unknown">
+                    <label class="form-check-label" for="Ageatdeath_unknown">Age at Death Unknown? (Y/N): </label>
+                </div>
+
+                <!-- Add the rest of the checkbox inputs -->
+
+                @if (ViewBag.WrappingPrediction != null)
+                {
+                    <h3>Wrapping Prediction: @ViewBag.WrappingPrediction</h3>
+                }
+
+                <button type="submit" class="btn btn-primary">Predict</button>
+            </form>
         </div>
     </div>
 </section>
-<!-- Results-->
-<section class="page-section bg-light" id="team">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">Make Predictions: </h2>
-            <h3 class="section-subheading text-muted">Predict the type of wrapping: </h3>
-
-            <form id="predictionForm1" action="@Url.Action("MakePrediction")" method="post">
-                <div>
-                    <label for="headdirection">Head Direction:</label>
-                    <input type="text" id="headdirection" name="headdirection" required>
+    <br />
+    <br />
+    <section class="page-section" >
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">New Findings</h2>
+                <h3 class="section-subheading text-muted">input your findings in the form below.</h3>
+            </div>
+            <div class="row text-center">
+                <div class="modal-body border-0 p-4 bg-dark rounded">
+                    <!-- * * * * * * * * * * * * * * *-->
+                    <!-- * * SB Forms Contact Form * *-->
+                    <!-- * * * * * * * * * * * * * * *-->
+                    <!-- This form is pre-integrated with SB Forms.-->
+                    <!-- To make this form functional, sign up at-->
+                    <!-- https://startbootstrap.com/solution/contact-forms-->
+                    <!-- to get an API token!-->
+                    <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                        <!-- Name input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                            <label for="name">Full name</label>
+                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                        </div>
+                        <!-- Email address input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                            <label for="email">Email address</label>
+                            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                        </div>
+                        <!-- Phone number input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                            <label for="phone">Phone number</label>
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                        </div>
+                        <!-- Message input-->
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                            <label for="message">Message</label>
+                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                        </div>
+                        <!-- Submit success message-->
+                        <!---->
+                        <!-- This is what your users will see when the form-->
+                        <!-- has successfully submitted-->
+                        <div class="d-none" id="submitSuccessMessage">
+                            <div class="text-center mb-3">
+                                <div class="fw-bolder">Form submission successful!</div>
+                                To activate this form, sign up at
+                                <br />
+                                <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                            </div>
+                        </div>
+                        <!-- Submit error message-->
+                        <!---->
+                        <!-- This is what your users will see when there is-->
+                        <!-- an error submitting the form-->
+                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                        <!-- Submit Button-->
+                        <div class="d-grid"><button class="btn btn-primary rounded-pill btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
+                    </form>
                 </div>
-                <div>
-                    <label for="depth">Depth:</label>
-                    <input type="number" step="any" id="depth" name="depth" required>
-                </div>
-                <div>
-                    <label for="facebundles">Facebundles:</label>
-                    <input type="text" step="any" id="facebundles" name="facebundles" required>
-                </div>
-                <div>
-                    <label for="goods">Goods:</label>
-                    <input type="text" step="any" id="goods" name="goods" required>
-                </div>
-                <div>
-                    <label for="haircolor">Hair Color:</label>
-                    <input type="text" step="any" id="haircolor" name="haircolor" required>
-                </div>
-                <div>
-                    <label for="samplescollected">Samples Collected:</label>
-                    <input type="text" step="any" id="samplescollected" name="samplescollected" required>
-                </div>
-                <div>
-                    <label for="length">Length:</label>
-                    <input type="number" step="any" id="length" name="length" required>
-                </div>
-                <div>
-                    <label for="ageatdeath">Age At Death (A, C):</label>
-                    <input type="text" step="any" id="ageatdeath" name="ageatdeath" required>
-                </div>
-                <div>
-                    <button type="submit">Predict</button>
-                </div>
-            </form>
-            <div id="predictionResult1"></div>
-
-            @if (ViewBag.Prediction != null)
-            {
-                <div>
-                    <h3>Prediction: @ViewBag.Prediction</h3>
-                </div>
-            }
+            </div>
         </div>
+    </section>
+    <!-- Results-->
+    @*<div id="predictionResult1"></div>
 
-        <!--Make predictions for male or female-->
-        <br /><br />
-        <div class="text-center">
-            <h3 class="section-subheading text-muted">Predict the sex: </h3>
+        @if (ViewBag.Prediction != null)
+        {
+            <p>Prediction: @ViewBag.Prediction</p>
+        }*@
+
+    <!-- Add other existing content for Supervised.cshtml -->
+    @*<h2 class="section-heading text-uppercase">Make Predictions: </h2>
+        <h3 class="section-subheading text-muted">Predict the type of wrapping: </h3>
+
+        <form id="predictionForm1" action="@Url.Action("MakePrediction")" method="post">
+            <div>
+                <label for="headdirection">Head Direction:</label>
+                <input type="text" id="headdirection" name="headdirection" required>
+            </div>
+            <div>
+                <label for="depth">Depth:</label>
+                <input type="number" step="any" id="depth" name="depth" required>
+            </div>
+            <div>
+                <label for="facebundles">Facebundles:</label>
+                <input type="text" step="any" id="facebundles" name="facebundles" required>
+            </div>
+            <div>
+                <label for="goods">Goods:</label>
+                <input type="text" step="any" id="goods" name="goods" required>
+            </div>
+            <div>
+                <label for="haircolor">Hair Color:</label>
+                <input type="text" step="any" id="haircolor" name="haircolor" required>
+            </div>
+            <div>
+                <label for="samplescollected">Samples Collected:</label>
+                <input type="text" step="any" id="samplescollected" name="samplescollected" required>
+            </div>
+            <div>
+                <label for="length">Length:</label>
+                <input type="number" step="any" id="length" name="length" required>
+            </div>
+            <div>
+                <label for="ageatdeath">Age At Death (A, C):</label>
+                <input type="text" step="any" id="ageatdeath" name="ageatdeath" required>
+            </div>
+            <div>
+                <button type="submit">Predict</button>
+            </div>
+        </form>
+        <div id="predictionResult1"></div>
+
+        @if (ViewBag.Prediction != null)
+        {
+            <div>
+                <h3>Prediction: @ViewBag.Prediction</h3>
+            </div>
+        }*@
+    </div>
+
+    <!--Make predictions for male or female-->
+    <br /><br />
+    <div class="text-center">
+
+        @*<h3 class="section-subheading text-muted">Predict the sex: </h3>
 
             <form id="predictionForm" action="@Url.Action("MakePredictionMF")" method="post">
                 <div>
@@ -177,71 +263,43 @@
                 <div>
                     <h3>Prediction: @ViewBag.PredMF</h3>
                 </div>
-            }
-        </div>
-        <br /><br />
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="assets/img/team/1.jpg" alt="..." />
-                    <h4>Parveen Anand</h4>
-                    <p class="text-muted">Lead Designer</p>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="..." />
-                    <h4>Diana Petersen</h4>
-                    <p class="text-muted">Lead Marketer</p>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="assets/img/team/3.jpg" alt="..." />
-                    <h4>Larry Parker</h4>
-                    <p class="text-muted">Lead Developer</p>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                </div>
+            }*@
+    </div>
+    <br /><br />
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="team-member">
+                <img class="mx-auto rounded-circle" src="assets/img/team/1.jpg" alt="..." />
+                <h4>Parveen Anand</h4>
+                <p class="text-muted">Lead Designer</p>
+                <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
+        <div class="col-lg-4">
+            <div class="team-member">
+                <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="..." />
+                <h4>Diana Petersen</h4>
+                <p class="text-muted">Lead Marketer</p>
+                <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="team-member">
+                <img class="mx-auto rounded-circle" src="assets/img/team/3.jpg" alt="..." />
+                <h4>Larry Parker</h4>
+                <p class="text-muted">Lead Developer</p>
+                <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+            </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
+    </div>
+    </div>
 </section>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $("#predictionForm").submit(function (event) {
-            event.preventDefault(); // Prevent the default form submission behavior
-            var formData = $(this).serialize(); // Serialize form data
-
-            $.post("@Url.Action("MakePredictionMF")", formData, function (data) {
-                // Update the prediction result placeholder with the received data
-                $("#predictionResult").html("<h3>Prediction: " + data + "</h3>");
-            });
-        });
-    });
-</script>
-<script>
-    $(document).ready(function () {
-        $("#predictionForm1").submit(function (event) {
-            event.preventDefault(); // Prevent the default form submission behavior
-            var formData = $(this).serialize(); // Serialize form data
-
-            $.post("@Url.Action("MakePrediction")", formData, function (data) {
-                // Update the prediction result placeholder with the received data
-                $("#predictionResult1").html("<h3>Prediction: " + data + "</h3>");
-            });
-        });
-    });
-</script>

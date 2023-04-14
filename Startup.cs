@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Authorization;
+using intex2.Models;
 
 namespace intex2
 {
@@ -55,6 +56,9 @@ namespace intex2
                 options.Password.RequiredLength = 12;
                 options.Password.RequiredUniqueChars = 1;
             });
+
+            services.AddScoped<PredictSexService>();
+            services.AddScoped<PredictWrappingService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
